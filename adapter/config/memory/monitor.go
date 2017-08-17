@@ -21,6 +21,7 @@ import (
 )
 
 const (
+	// BufferSize specifies the buffer size of channel
 	BufferSize = 10
 )
 

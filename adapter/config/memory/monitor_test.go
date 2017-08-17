@@ -35,7 +35,7 @@ func TestEventConsistency(t *testing.T) {
 	ch := make(chan bool)
 
 	// Append notify handlers to the controller
-	controller.RegisterEventHandler(mock.Type, func(config model.Config, event model.Event) {
+	controller.RegisterEventHandler(model.MockConfig.Type, func(config model.Config, event model.Event) {
 		if event != testEvent {
 			t.Errorf("desired %v, but %v", testEvent, event)
 		}
@@ -68,7 +68,7 @@ func TestEventConsistency(t *testing.T) {
 	testEvent = model.EventDelete
 
 	// Test Delete Event
-	if err := controller.Delete(mock.Type, testConfig.Key); err != nil {
+	if err := controller.Delete(model.MockConfig.Type, testConfig.Key); err != nil {
 		t.Error(err)
 	}
 }
